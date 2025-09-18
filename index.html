@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-T" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini Trip Planner India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+      <style>
+        :root {
+          --background: 0.98 0.007 264;
+          --foreground: 0.24 0.01 264;
+          --card: 1 0 0;
+          --card-foreground: 0.24 0.01 264;
+          --popover: 1 0 0;
+          --popover-foreground: 0.24 0.01 264;
+          --primary: 0.55 0.19 302;
+          --primary-foreground: 0.99 0.01 302;
+          --secondary: 0.96 0.01 264;
+          --secondary-foreground: 0.24 0.01 264;
+          --muted: 0.96 0.01 264;
+          --muted-foreground: 0.5 0.02 264;
+          --accent: 0.96 0.01 264;
+          --accent-foreground: 0.24 0.01 264;
+          --destructive: 0.65 0.22 25;
+          --destructive-foreground: 0.99 0 0;
+          --border: 0.92 0.01 264;
+          --input: 0.92 0.01 264;
+          --ring: 0.55 0.19 302;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .animate-fade-in { animation: fadeIn 0.5s ease-in-out; }
+      </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              border: 'oklch(var(--border))',
+              input: 'oklch(var(--input))',
+              ring: 'oklch(var(--ring))',
+              background: 'oklch(var(--background))',
+              foreground: 'oklch(var(--foreground))',
+              primary: {
+                DEFAULT: 'oklch(var(--primary))',
+                foreground: 'oklch(var(--primary-foreground))',
+              },
+              secondary: {
+                DEFAULT: 'oklch(var(--secondary))',
+                foreground: 'oklch(var(--secondary-foreground))',
+              },
+              destructive: {
+                DEFAULT: 'oklch(var(--destructive))',
+                foreground: 'oklch(var(--destructive-foreground))',
+              },
+              muted: {
+                DEFAULT: 'oklch(var(--muted))',
+                foreground: 'oklch(var(--muted-foreground))',
+              },
+              accent: {
+                DEFAULT: 'oklch(var(--accent))',
+                foreground: 'oklch(var(--accent-foreground))',
+              },
+              popover: {
+                DEFAULT: 'oklch(var(--popover))',
+                foreground: 'oklch(var(--popover-foreground))',
+              },
+              card: {
+                DEFAULT: 'oklch(var(--card))',
+                foreground: 'oklch(var(--card-foreground))',
+              },
+            },
+            borderRadius: {
+              lg: `0.5rem`,
+              md: `calc(0.5rem - 2px)`,
+              sm: `calc(0.5rem - 4px)`,
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.11.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@react-google-maps/api": "https://esm.sh/@react-google-maps/api@^2.19.3"
+  }
+}
+</script>
+</head>
+  <body class="bg-background font-sans text-foreground">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

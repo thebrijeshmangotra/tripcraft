@@ -1,0 +1,5 @@
+{
+  "name": "Gemini Trip Planner India",
+  "description": "An AI-powered trip planner that creates detailed itineraries for travel within India. Users can specify their destination, dates, party size, and interests to receive a comprehensive plan complete with activity suggestions, booking options, and a downloadable PDF. Requires a GOOGLE_MAPS_API_KEY environment variable for map functionality.",
+  "requestFramePermissions": []
+}
