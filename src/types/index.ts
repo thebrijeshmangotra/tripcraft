@@ -9,7 +9,7 @@ export interface TripDetails {
   searchRadius: number;
 }
 
-export type BookingType = 'hotel' | 'restaurant' | 'activity' | 'taxi' | null;
+export type BookingType = "hotel" | "restaurant" | "activity" | "taxi" | null;
 
 export interface Activity {
   time: string;
@@ -17,7 +17,7 @@ export interface Activity {
   description: string;
   travel_time_to_next: string | null;
   booking_type: BookingType;
-  location: { lat: number; lng: number; } | null;
+  location: { lat: number; lng: number } | null;
 }
 
 export interface DayPlan {
@@ -27,15 +27,24 @@ export interface DayPlan {
 }
 
 export interface ItineraryPlan {
-  title:string;
+  title: string;
   days: DayPlan[];
 }
 
 export const availableActivities = [
-  'Adventure & Outdoors',
-  'History & Culture',
-  'Relaxation & Wellness',
-  'Food & Culinary',
-  'Shopping',
-  'Nightlife',
+  "Adventure & Outdoors",
+  "History & Culture",
+  "Relaxation & Wellness",
+  "Food & Culinary",
+  "Shopping",
+  "Nightlife",
 ];
+
+export type View = "planner" | "history" | "history-detail";
+
+export interface SidebarItem {
+  id: string;
+  path: string;
+  title: string;
+  icon: React.ReactNode;
+}
