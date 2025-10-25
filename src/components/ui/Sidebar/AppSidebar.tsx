@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/Sidebar";
-import { Button } from "../Button";
+import { Button } from "../button";
 import { HistoryIcon, LogOutIcon } from "@/components/IconComponents";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Map, MessageCircle, UserIcon } from "lucide-react";

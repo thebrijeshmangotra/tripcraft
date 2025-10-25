@@ -14,7 +14,7 @@ import {
   CardDescription,
   CardContent,
 } from "./ui/Card";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 
 interface ItineraryDisplayProps {
   plan: ItineraryPlan;

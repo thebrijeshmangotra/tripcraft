@@ -1,5 +1,5 @@
 import { Monitor, Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
 interface GeneratorType {
@@ -16,13 +16,10 @@ export function ThemeToggler() {
         setTheme("dark");
         break;
       case "dark":
-        setTheme("system");
-        break;
-      case "system":
         setTheme("light");
         break;
       default:
-        setTheme("light");
+        setTheme("system");
         break;
     }
   }
@@ -30,8 +27,8 @@ export function ThemeToggler() {
   return (
     <Button
       variant="outline"
-      size="icon"
-      className="w-10 h-10"
+      // size="icon"
+      className="capitalize"
       onClick={myGenerator}
     >
       {theme == "light" && <Sun />}
@@ -39,6 +36,7 @@ export function ThemeToggler() {
         <Moon className="dark:text-foreground transaition-all" />
       )}
       {theme == "system" && <Monitor />}
+      {theme}
     </Button>
   );
 }

@@ -7,7 +7,7 @@ import {
   LogOutIcon,
 } from "./IconComponents";
 import { supabase } from "../services/authService";
-import { Button } from "./ui/Button";
+import { Button } from "./ui/button";
 import { Map, MessageCircle } from "lucide-react";
 import { ThemeToggler } from "./ui/ThemeToggler";
 

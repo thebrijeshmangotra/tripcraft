@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import Modal from './Modal';
-import { signUp, signIn } from '../services/authService';
-import { Button } from './ui/Button';
-import { Input } from './ui/Input';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './ui/Card';
+import React, { useState } from "react";
+import Modal from "./Modal";
+import { signUp, signIn } from "../services/authService";
+import { Button } from "./ui/button";
+import { Input } from "./ui/Input";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "./ui/Card";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -11,20 +17,24 @@ interface AuthModalProps {
   onSuccess: () => void;
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => {
+const AuthModal: React.FC<AuthModalProps> = ({
+  isOpen,
+  onClose,
+  onSuccess,
+}) => {
   const [isSignUp, setIsSignUp] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      const { error } = isSignUp 
+      const { error } = isSignUp
         ? await signUp(email, password)
         : await signIn(email, password);
 
@@ -35,7 +45,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
         onClose();
       }
     } catch (err) {
-      setError('An unexpected error occurred');
+      setError("An unexpected error occurred");
     } finally {
       setLoading(false);
     }
@@ -48,17 +58,21 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
       <Card className="border-0 shadow-none">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">
-            {isSignUp ? 'Create your account' : 'Welcome back'}
+            {isSignUp ? "Create your account" : "Welcome back"}
           </CardTitle>
           <CardDescription>
-            {isSignUp ? 'Sign up to save your travel plans' : 'Sign in to your account'}
+            {isSignUp
+              ? "Sign up to save your travel plans"
+              : "Sign in to your account"}
           </CardDescription>
         </CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium leading-none">Email address</label>
+              <label className="text-sm font-medium leading-none">
+                Email address
+              </label>
               <Input
                 type="email"
                 value={email}
@@ -67,9 +81,11 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
-              <label className="text-sm font-medium leading-none">Password</label>
+              <label className="text-sm font-medium leading-none">
+                Password
+              </label>
               <Input
                 type="password"
                 value={password}
@@ -96,8 +112,10 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
                   <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
                   Loading...
                 </>
+              ) : isSignUp ? (
+                "Sign up"
               ) : (
-                isSignUp ? 'Sign up' : 'Sign in'
+                "Sign in"
               )}
             </Button>
 
@@ -108,7 +126,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess }) => 
                 onClick={() => setIsSignUp(!isSignUp)}
                 className="text-sm"
               >
-                {isSignUp ? 'Already have an account? Sign in' : "Don't have an account? Sign up"}
+                {isSignUp
+                  ? "Already have an account? Sign in"
+                  : "Don't have an account? Sign up"}
               </Button>
             </div>
           </form>
