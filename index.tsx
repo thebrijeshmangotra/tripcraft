@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./src/App";
+
 import "./src/index.css";
 import { RouterProvider } from "react-router/dom";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -11,7 +11,6 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-export default App;
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
