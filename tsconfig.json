@@ -21,13 +21,7 @@
     }
   },
   "include": [
-    "src",
-    "src/components",
-    "src/services",
-    "src/types/types.ts",
-    "App.tsx",
-    "*.ts",
-    "*.tsx"
+    "src"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

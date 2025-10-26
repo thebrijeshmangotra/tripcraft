@@ -25,14 +25,10 @@ interface ItineraryDisplayProps {
 }
 
 const ItineraryDisplay = forwardRef<HTMLDivElement, ItineraryDisplayProps>(
-  ({
-    plan,
-    isReadOnly = false,
-    onBooking,
-    onDownloadPdf,
-    onSendEmail,
+  (
+    { plan, isReadOnly = false, onBooking, onDownloadPdf, onSendEmail },
     ref,
-  }) => {
+  ) => {
     console.log("ref", ref);
     const getBookingButtonText = (type: string) => {
       switch (type) {

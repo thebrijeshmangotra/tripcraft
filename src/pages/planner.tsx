@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import ItineraryDisplay from "@/components/ItineraryDisplay";
 import TripForm from "@/components/TripForm";
-import { availableActivities, ItineraryPlan, TripDetails, View } from "@/types";
-import { AlertTriangleIcon, LoaderIcon, PlaneIcon } from "lucide-react";
+import { PlaneIcon } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { generateItinerary } from "@/services/geminiService";
 import { saveItinerary } from "@/services/historyService";
 import { generatePdf } from "@/services/pdfService";
-import dayjs from "dayjs";
-import { Empty } from "@/components/ui/empty";
 import {
   EmptyMuted,
   ErrorEmpty,
   SpinnerEmpty,
 } from "@/components/ui/state-banner";
+import dayjs from "dayjs";
+import { availableActivities, ItineraryPlan, TripDetails, View } from "@/types";
 
 const Planner = () => {
   const [tripDetails, setTripDetails] = useState<TripDetails>({
