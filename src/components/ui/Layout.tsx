@@ -1,4 +1,3 @@
-import { NavigationMenu, NavigationMenuList } from "./navigation-menu";
 import { SidebarProvider, SidebarTrigger } from "./Sidebar";
 import { AppSidebar } from "./Sidebar/AppSidebar";
 import { Outlet } from "react-router";

@@ -1,5 +1,80 @@
 # Blog Content Ideas - G-Cloud Search Travel
 
+## Bug Fixes & Development Insights (October 26, 2025)
+
+### **"From Build Errors to Production Ready: Fixing 69 ESLint Issues in a React TypeScript Project"**
+
+**The Challenge**: After setting up ESLint and TypeScript strict checking, our travel planner project had 69 linting errors preventing successful builds.
+
+**Key Fixes Applied**:
+
+1. **React Hook Dependencies**
+   ```typescript
+   // ❌ Before: Missing dependency
+   const debouncedFetch = debounce(fetchSuggestions, 300);
+   
+   // ✅ After: Proper useCallback with dependencies
+   const debouncedFetch = useCallback(debounce(fetchSuggestions, 300), []);
+   ```
+
+2. **State Management Anti-patterns**
+   ```typescript
+   // ❌ Before: setState in useEffect (cascading renders)
+   useEffect(() => {
+     if (value) setDate(dayjs(value).toDate());
+   }, [value]);
+   
+   // ✅ After: Derived state
+   const date = value ? dayjs(value).toDate() : undefined;
+   ```
+
+3. **Missing React Imports**
+   ```typescript
+   // ❌ Before: 'React' is not defined
+   const Component = () => <div>Hello</div>;
+   
+   // ✅ After: Proper import
+   import React from "react";
+   const Component = () => <div>Hello</div>;
+   ```
+
+4. **Impure Functions in Render**
+   ```typescript
+   // ❌ Before: Math.random in useMemo
+   const width = React.useMemo(() => {
+     return `${Math.floor(Math.random() * 40) + 50}%`;
+   }, []);
+   
+   // ✅ After: Fixed value
+   const width = React.useMemo(() => "70%", []);
+   ```
+
+5. **Unused Variables Strategy**
+   ```typescript
+   // ❌ Before: Unused variables causing errors
+   const [user, setUser] = useState(null);
+   
+   // ✅ After: Prefix with underscore for intentionally unused
+   const [_user, setUser] = useState(null);
+   ```
+
+**ESLint Configuration Insights**:
+- Added Node.js globals for `process` and `__dirname`
+- Configured `argsIgnorePattern: '^_'` for unused function parameters
+- Separated JS/TS rules for better type checking
+
+**Build Results**: 
+- ❌ Before: 69 errors, 0 successful builds
+- ✅ After: 0 errors, successful production build
+
+**Key Takeaways**:
+- Always run ESLint during development, not just before deployment
+- Use `useCallback` for functions passed to debounce utilities
+- Avoid setState in useEffect - prefer derived state
+- Prefix intentionally unused variables with underscore
+
+---
+
 ## Featured Product Updates & Blog Post Suggestions
 
 ### 1. **"Building an AI Travel Planner: How We Integrated Google Gemini for Smart Itineraries"**

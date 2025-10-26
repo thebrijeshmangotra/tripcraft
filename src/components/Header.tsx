@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  PlaneIcon,
-  HistoryIcon,
-  MenuIcon,
-  UserIcon,
-  LogOutIcon,
-} from "./IconComponents";
+import { HistoryIcon, MenuIcon, UserIcon, LogOutIcon } from "./IconComponents";
 import { supabase } from "../services/authService";
 import { Button } from "./ui/button";
 import { Map, MessageCircle } from "lucide-react";
@@ -14,9 +8,12 @@ import { ThemeToggler } from "./ui/ThemeToggler";
 interface SidebarProps {
   isSidebarOpen: boolean;
   onToggle: () => void;
-  onNavigate: (view: "planner" | "history") => void;
+  onNavigate: (_event: "planner" | "history") => void;
   currentView: string;
-  user: any;
+  user: {
+    email: string;
+    id: string;
+  };
   onAuthClick: () => void;
 }
 

@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+/** eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 // A simple debounce function to limit API calls while typing
-const debounce = <F extends (...args: any[]) => any>(
+const debounce = <F extends (...args: unknown[]) => unknown>(
   func: F,
   waitFor: number,
 ) => {

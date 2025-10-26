@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { CalendarIcon, ChevronDownIcon } from "lucide-react";
+import { useCallback, useState } from "react";
+import { CalendarIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -21,17 +21,14 @@ function DatePicker({
   onChange: (e: string) => void;
 }) {
   const [open, setOpen] = useState(false);
-  const [date, setDate] = useState<Date | undefined>();
+  const date = value ? dayjs(value).toDate() : undefined;
 
-  useEffect(() => {
-    if (value) {
-      setDate(dayjs(value).toDate());
+  const handleChange = useCallback((selectedDate: Date | undefined) => {
+    if (selectedDate) {
+      onChange(dayjs(selectedDate).format("YYYY-MM-DD"));
+      setOpen(false);
     }
-  }, [value]);
-
-  const handleChange = useCallback(() => {
-    onChange(dayjs(date).format("YYYY-MM-DD").toString());
-  }, [date]);
+  }, [onChange]);
 
   return (
     <div className="flex flex-col gap-3">
@@ -54,11 +51,7 @@ function DatePicker({
             mode="single"
             selected={date}
             captionLayout="dropdown"
-            onSelect={(date) => {
-              setDate(date);
-              setOpen(false);
-              handleChange();
-            }}
+            onSelect={handleChange}
           />
         </PopoverContent>
       </Popover>

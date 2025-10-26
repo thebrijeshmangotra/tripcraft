@@ -11,7 +11,7 @@ export default [
     files: ['**/*.{js,jsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
     },
     plugins: {
       'react-hooks': reactHooks,
@@ -24,13 +24,14 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
       parser: tsparser,
       parserOptions: {
         ecmaFeatures: { jsx: true },
@@ -48,8 +49,9 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       '@typescript-eslint/no-explicit-any': 'warn',
+      'no-unused-vars': 'off',
     },
   },
 ];

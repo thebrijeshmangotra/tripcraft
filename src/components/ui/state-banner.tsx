@@ -1,11 +1,5 @@
-import {
-  RefreshCcwIcon,
-  Car,
-  Hotel,
-  Bus,
-  Plane,
-  AlertCircle,
-} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { RefreshCcwIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Empty,
@@ -17,7 +11,6 @@ import {
 } from "@/components/ui/empty";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Spinner } from "@/components/ui/spinner";
-import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangleIcon } from "../IconComponents";
 

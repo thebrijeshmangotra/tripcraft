@@ -35,13 +35,12 @@ const Planner = () => {
     body: string;
   } | null>(null);
 
-  const [view, setView] = useState<View>("planner");
-  const [selectedHistoryItem, setSelectedHistoryItem] =
-    useState<ItineraryPlan | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [view] = useState<View>("planner");
+  const [selectedHistoryItem] = useState<ItineraryPlan | null>(null);
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-  const [user, setUser] = useState<any>(null);
-  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [_user, setUser] = useState<any>(null);
+  // const [showAuthModal, setShowAuthModal] = useState(false);
 
   useEffect(() => {
     // Check for existing session

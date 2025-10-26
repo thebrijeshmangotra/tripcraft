@@ -45,6 +45,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
         onClose();
       }
     } catch (err) {
+      console.error(err);
       setError("An unexpected error occurred");
     } finally {
       setLoading(false);
