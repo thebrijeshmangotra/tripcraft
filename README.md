@@ -1,20 +1,74 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# G-Cloud Search Travel
 
-# Run and deploy your AI Studio app
+AI-powered travel itinerary planner using Google Gemini AI and Google Maps integration.
 
-This contains everything you need to run your app locally.
+## Project Status
 
-View your app in AI Studio: https://ai.studio/apps/drive/1JDY8_ksLGY_u8Nlh0EJVW4nytGh9hFjp
+**Version:** 0.0.0  
+**Status:** Development Phase  
+**Updated:** October 26, 2025
 
-## Run Locally
+## Features
 
-**Prerequisites:**  Node.js
+### Core Functionality
+- AI itinerary generation via Google Gemini
+- Interactive trip planning form
+- 6 activity categories (Adventure, Culture, Wellness, Food, Shopping, Nightlife)
+- Google Maps integration with location plotting
+- User authentication (Supabase)
+- Trip history management
+- PDF export functionality
 
+### Technical Features
+- Responsive design with dark/light themes
+- Real-time loading states
+- Error handling and validation
+- Session management
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Tech Stack
+
+**Frontend:** React 18, TypeScript, Vite  
+**UI:** Tailwind CSS, Radix UI  
+**AI:** Google Gemini API  
+**Maps:** Google Maps API  
+**Backend:** Supabase  
+**Utils:** jsPDF, html2canvas, Framer Motion
+
+## Development
+
+```bash
+npm install
+npm run dev
+npm run build
+```
+
+## Environment Setup
+
+```env
+VITE_GOOGLE_MAPS_API_KEY=your_key
+VITE_GEMINI_API_KEY=your_key
+VITE_SUPABASE_URL=your_url
+VITE_SUPABASE_ANON_KEY=your_key
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # UI components
+├── pages/         # Route components
+├── services/      # API integrations
+├── types/         # TypeScript definitions
+├── lib/           # Utilities
+└── hooks/         # Custom hooks
+```
+
+## Roadmap
+
+- [ ] Flight booking integration
+- [ ] Hotel recommendations
+- [ ] Weather data integration
+- [ ] Mobile app
+- [ ] Collaborative planning
+- [ ] Budget tracking
+- [ ] Social sharing
