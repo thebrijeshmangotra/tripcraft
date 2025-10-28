@@ -1,6 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import ItineraryDisplay from "@/components/ItineraryDisplay";
-import TripForm from "@/components/TripForm";
+import { useCallback, useEffect, useRef, useState, lazy } from "react";
 import { PlaneIcon } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { generateItinerary } from "@/services/geminiService";
@@ -13,6 +11,10 @@ import {
 } from "@/components/ui/state-banner";
 import dayjs from "dayjs";
 import { availableActivities, ItineraryPlan, TripDetails, View } from "@/types";
+import LazyComponent from "@/components/LazyComponent";
+
+const ItineraryDisplay = lazy(() => import("@/components/ItineraryDisplay"));
+const TripForm = lazy(() => import("@/components/TripForm"));
 
 const Planner = () => {
   const [tripDetails, setTripDetails] = useState<TripDetails>({
@@ -112,7 +114,9 @@ const Planner = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-fade-in">
       <div className="lg:col-span-4 xl:col-span-3">
-        <TripForm
+        <LazyComponent
+          component={TripForm}
+          fallback={<div className="h-96 bg-card border rounded-lg animate-pulse" />}
           tripDetails={tripDetails}
           onDetailsChange={handleFormChange}
           onSubmit={handleGeneratePlan}
@@ -147,7 +151,10 @@ const Planner = () => {
           />
         )}
         {itinerary && !isLoading && (
-          <ItineraryDisplay
+          <LazyComponent
+            component={ItineraryDisplay}
+            condition={!!itinerary && !isLoading}
+            fallback={<div className="h-96 animate-pulse bg-muted rounded" />}
             ref={itineraryRef}
             plan={itinerary}
             onBooking={handleBooking}

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./src/index.css";
 import { RouterProvider } from "react-router/dom";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -22,5 +22,6 @@ root.render(
     >
       <RouterProvider router={router} />
     </ThemeProvider>
+    <SpeedInsights />
   </React.StrictMode>,
 );

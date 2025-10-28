@@ -1,27 +1,29 @@
 import Layout from "@/components/ui/Layout";
 import { createBrowserRouter } from "react-router";
-import HistoryPage from "./pages/history";
-import HistoryDetails from "./pages/history/historyDetails";
-import Planner from "./pages/planner";
-import ErrorBoundary from "./components/ErrorBoundary";
+import { lazy } from "react";
+
+const Planner = lazy(() => import("./pages/planner"));
+const HistoryPage = lazy(() => import("./pages/history"));
+const HistoryDetails = lazy(() => import("./pages/history/historyDetails"));
+const ErrorBoundary = lazy(() => import("./components/ErrorBoundary"));
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: () => <Layout />,
-    ErrorBoundary: () => <ErrorBoundary />,
+    ErrorBoundary: ErrorBoundary,
     children: [
       {
         path: "/",
-        Component: () => <Planner />,
+        Component: Planner,
       },
       {
         path: "/history",
-        Component: () => <HistoryPage />,
+        Component: HistoryPage,
       },
       {
         path: "/history/:id",
-        Component: () => <HistoryDetails />,
+        Component: HistoryDetails,
       },
     ],
   },

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { SidebarProvider, SidebarTrigger } from "./Sidebar";
 import { AppSidebar } from "./Sidebar/AppSidebar";
 import { Outlet } from "react-router";
@@ -12,13 +13,9 @@ const Layout = () => (
           <SidebarTrigger />
           <ThemeToggler />
         </div>
-        {/*<NavigationMenu className="container mx-auto w-auto flex justify-between gap-2 h-fit">
-          <NavigationMenuList>
-          </NavigationMenuList>
-          <NavigationMenuList>
-          </NavigationMenuList>
-        </NavigationMenu>*/}
-        <Outlet />
+        <Suspense fallback={<div className="flex items-center justify-center min-h-96">Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
     </SidebarProvider>
   </div>

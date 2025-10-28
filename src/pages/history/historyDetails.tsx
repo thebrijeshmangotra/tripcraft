@@ -1,4 +1,7 @@
-import ItineraryDisplay from "@/components/ItineraryDisplay";
+import { lazy } from "react";
+import LazyComponent from "@/components/LazyComponent";
+
+const ItineraryDisplay = lazy(() => import("@/components/ItineraryDisplay"));
 
 const HistoryDetails = () => {
   return (
@@ -11,13 +14,15 @@ const HistoryDetails = () => {
           &larr; Back to Travel History
         </button>
       </div>
-      {/*<ItineraryDisplay
-        plan={selectedHistoryItem}
-        isReadOnly={true}
-        onBooking={() => {}}
-        onDownloadPdf={handleDownloadPdf}
-        onSendEmail={handleSendEmail}
-      />*/}
+      <LazyComponent
+        component={ItineraryDisplay}
+        fallback={<div className="h-96 animate-pulse bg-muted rounded" />}
+        // plan={selectedHistoryItem}
+        // isReadOnly={true}
+        // onBooking={() => {}}
+        // onDownloadPdf={handleDownloadPdf}
+        // onSendEmail={handleSendEmail}
+      />
     </div>
   );
 };

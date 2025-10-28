@@ -15,4 +15,16 @@ export default defineConfig({
   define: {
     "process.env": {},
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'pages': ['./src/pages/planner.tsx', './src/pages/history/index.tsx'],
+          'components': ['./src/components/ItineraryDisplay.tsx', './src/components/TripForm.tsx'],
+          'services': ['./src/services/geminiService.ts', './src/services/historyService.ts'],
+          'ui': ['./src/components/ui/button.tsx', './src/components/ui/Card.tsx']
+        }
+      }
+    }
+  }
 });
