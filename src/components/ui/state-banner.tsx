@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RefreshCcwIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 import {
   Empty,
   EmptyContent,

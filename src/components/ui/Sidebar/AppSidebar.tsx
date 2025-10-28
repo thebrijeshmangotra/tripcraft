@@ -8,10 +8,10 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/Sidebar";
+} from "./index";
 import { Button } from "../button";
-import { HistoryIcon, LogOutIcon } from "@/components/IconComponents";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { HistoryIcon, LogOutIcon } from "../../IconComponents";
+import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
 import { Map, MessageCircle, UserIcon } from "lucide-react";
 import { useLocation, useNavigate } from "react-router";
 import { SidebarItem } from "@/types";

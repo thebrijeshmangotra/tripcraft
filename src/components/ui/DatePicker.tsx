@@ -1,9 +1,9 @@
 import { useCallback, useState } from "react";
 import { CalendarIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Label } from "@/components/ui/label";
+import { Button } from "./button";
+import { Calendar } from "./calendar";
+import { Label } from "./label";
 import {
   Popover,
   PopoverContent,
